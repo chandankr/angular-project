@@ -1,0 +1,24 @@
+<app-search (onSearch)="searchData($event)"></app-search>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th #id (click)="sort(1)">#ID</th>
+			<th #name (click)="sort(2)" >NAME</th>
+			<th #age (click)="sort(3)" >AGE</th>
+			<th #isactive (click)="sort(4)">ISACTIVE</th>
+			<th >ACTION</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let dat of data">
+			<td>{{dat.id}}</td>
+			<td>{{dat.name}}</td>
+			<td>{{dat.age}}</td>
+			<td>{{dat.isactive | convertBoolean}}</td>
+			<td><span
+				><a href="#" (click)="editData(dat.id)"><span class="glyphicon glyphicon-pencil">Edit</span></a> 
+				&nbsp; <a href="#" (click)="deleteData(dat.id)"><span class="glyphicon glyphicon-remove">Delete</span></a></span>
+			</td>
+		</tr>
+	</tbody>
+</table>
